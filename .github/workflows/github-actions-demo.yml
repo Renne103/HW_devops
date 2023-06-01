@@ -1,4 +1,4 @@
-name: Java Build
+name: Java CI
 
 on:
   push:
@@ -8,21 +8,23 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    
-    - name: Set up JDK
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-    
-    - name: Build with Maven
-      run: mvn package
-    
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: App JAR
-        path: target/app.jar
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: "temurin"
+          cache: maven
+
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact.jar
+          path: People/target/*.jar
