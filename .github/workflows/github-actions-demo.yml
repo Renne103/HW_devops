@@ -21,10 +21,7 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn package --file pom.xml --quiet
-
-      - name: Run tests
-        run: mvn test --file pom.xml --quiet
+        run: mvn package --file pom.xml
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2
