@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: artifact.jar
-          path: people/target/*.jar
+          path: People/target/*.jar
