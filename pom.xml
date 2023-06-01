@@ -21,7 +21,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>lab1.Main</mainClass>
+                            <mainClass>People.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
