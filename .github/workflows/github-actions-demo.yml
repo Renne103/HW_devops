@@ -25,3 +25,7 @@ jobs:
         uses: some-deployment-action@v1
         with:
           distribution: ${{ secrets.DISTRIBUTION }}
+      - name: Example Step
+        run: echo "This step requires the 'distribution' input: ${{ inputs.distribution }}"
+        env:
+          distribution: ${{ inputs.distribution }}
